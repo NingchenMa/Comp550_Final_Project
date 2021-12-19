@@ -44,8 +44,8 @@ for i in range(2):
 
 	print("Original article:")
 
-	# for line in indata:
-	# 	print(line, end="")
+	for line in indata:
+		print(line, end="")
 
 	print('\n')
 
