@@ -16,10 +16,12 @@ lsscore = [[], []]
 
 scores = [msscore, pnscore, pgscore, lsscore]
 
-for i in range(50):
+for i in range(2):
 
-	shuf = [j for j in range(4)]
-	shuffle(shuf)
+	shufe = [j for j in range(2)]
+	shufa = [j for j in range(2,4)]
+	shuffle(shufe)
+	shuffle(shufa)
 
 	data = [[] for i in range(4)]
 
@@ -56,23 +58,35 @@ for i in range(50):
 
 	print('\n')
 
-	for num, j in enumerate(shuf):
+	for name,shuf in [("Extractive", shufe), ("Abstractive", shufa)]:
+		for num, j in enumerate(shuf):
 
-		print("Automatic summary " + str(num) + ":")
+			print(name + " summary " + str(num) + ":")
 
-		for line in data[j]:
-			print(line, end="")
-		print('\n')
+			for line in data[j]:
+				print(line, end="")
+			print('\n')
 
-		r = int(input("Rate the RELEVANCE for this summary on as scale from 1 and 5:"))
-		scores[j][0].append(r)
+		for num, j in enumerate(shuf):
+			r=-1
+			while (type(r)!=float or r >5 or r <0):
+				try:
+					r = float(input("Rate the RELEVANCE for " + name.lower() + " summary " + str(num) +" on a scale from 1 and 5:"))
+				except ValueError:
+					continue
+			scores[j][0].append(r)
 
-		print('\n')
+			print('\n')
 
-		c = int(input("Rate the COHERENCE for this summary on as scale from 1 and 5:"))
-		scores[j][1].append(c)
+			c=-1
+			while (type(c)!=float or c >5 or c <0):
+				try:
+					c = float(input("Rate the COHERENCE for " + name.lower() + " summary " + str(num) +" on a scale from 1 and 5:"))
+				except ValueError:
+					continue
+			scores[j][1].append(c)
 
-		print('\n')
+			print('\n')
 
 	rrow = [scores[j][0][i] for j in range(4)]
 	crow = [scores[j][1][i] for j in range(4)]
