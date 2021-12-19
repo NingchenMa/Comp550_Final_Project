@@ -16,7 +16,7 @@ lsscore = [[], []]
 
 scores = [msscore, pnscore, pgscore, lsscore]
 
-for i in range(2):
+for i in range(50):
 
 	shufe = [j for j in range(2)]
 	shufa = [j for j in range(2,4)]
