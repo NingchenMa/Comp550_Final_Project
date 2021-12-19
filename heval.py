@@ -16,12 +16,12 @@ lsscore = [[], []]
 
 scores = [msscore, pnscore, pgscore, lsscore]
 
-for i in range(2):
+for i in range(50):
 
 	shuf = [j for j in range(4)]
 	shuffle(shuf)
 
-	data = [[], [], [], []]
+	data = [[] for i in range(4)]
 
 	indata = []
 	rfdata = []
