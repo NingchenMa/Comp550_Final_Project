@@ -80,8 +80,8 @@ if __name__ == '__main__':
             for data in csv_scores:
                 writer.writerow(data)
 
-        #print(model)
-        #print(getScores(evaluators, data[model], refs, ins))
+        print(model)
+        print(getScores(evaluators, outputs, refs, ins))
 
 
 
